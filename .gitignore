@@ -1,0 +1,10 @@
+# Python cache files - auto-generated, not needed on GitHub
+__pycache__/
+*.pyc
+*.pyo
+
+# This file will hold your DB password safely (we create it next)
+config.py
+
+# VS Code personal settings
+.vscode/
