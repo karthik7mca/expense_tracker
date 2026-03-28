@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Delete an Expense</h1>
+
+<div class="card" style="max-width: 480px;">
+  <form method="POST" action="/delete">
+    <input type="hidden" name="action" value="find">
+
+    <div class="form-group">
+      <label>Enter Expense ID to delete</label>
+      <input type="number" name="exp_id" placeholder="e.g. 3" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Find Expense</button>
+    <a href="/expenses" class="btn btn-secondary" style="margin-left:10px;">
+      View all IDs
+    </a>
+  </form>
+</div>
+
+{% if expense %}
+<div class="card" style="max-width: 480px; border: 1px solid #f5c6cb;">
+  <h2 style="color:#721c24;">Confirm Deletion</h2>
+  <p style="margin-bottom:16px; font-size:14px;">
+    You are about to permanently delete this expense:
+  </p>
+  <table style="margin-bottom:20px;">
+    <tr><td style="color:#888; padding:6px 12px 6px 0;">ID</td>
+        <td>{{ expense[0] }}</td></tr>
+    <tr><td style="color:#888; padding:6px 12px 6px 0;">Category</td>
+        <td>{{ expense[1] }}</td></tr>
+    <tr><td style="color:#888; padding:6px 12px 6px 0;">Description</td>
+        <td>{{ expense[2] }}</td></tr>
+    <tr><td style="color:#888; padding:6px 12px 6px 0;">Amount</td>
+        <td>₹{{ "%.2f"|format(expense[3]) }}</td></tr>
+  </table>
+
+  <form method="POST" action="/delete">
+    <input type="hidden" name="action" value="confirm">
+    <input type="hidden" name="exp_id" value="{{ expense[0] }}">
+    <button type="submit" class="btn btn-danger">Yes, Delete</button>
+    <a href="/delete" class="btn btn-secondary" style="margin-left:10px;">Cancel</a>
+  </form>
+</div>
+{% endif %}
+
+{% endblock %}
