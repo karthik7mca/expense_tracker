@@ -6,13 +6,15 @@ A command-line Python application to track personal expenses, connected to an Or
 
 ## Features
 
-- Add expenses with category, description, and amount
-- View all expenses in a clean formatted table
-- View total spending summary by category
-- Filter expenses by any month and year with a running total
-- Delete any expense by ID (with confirmation prompt)
-- Data stored permanently in Oracle DB
-
+| Option | What it does |
+|--------|-------------|
+| 1. Add expense | Enter category, description, and amount |
+| 2. View all expenses | See every expense in a formatted table |
+| 3. View summary | See total spent per category |
+| 4. Visualize spending | Bar chart and pie chart of spending by category |
+| 5. Filter by month | View all expenses for a specific month and year |
+| 6. Delete expense | Delete any entry by ID, with a confirmation step |
+| 7. Exit | Close the application |
 ---
 
 ## Tech Stack
@@ -20,6 +22,7 @@ A command-line Python application to track personal expenses, connected to an Or
 - Python 3
 - Oracle Database (XE)
 - oracledb library
+- matplotlib (charts and visualization)
 
 ---
 
